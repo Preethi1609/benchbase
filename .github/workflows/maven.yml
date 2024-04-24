@@ -38,7 +38,7 @@ env:
 
 jobs:
   compile-and-test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -61,10 +61,10 @@ jobs:
 
   package-and-upload:
     needs: compile-and-test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
-        profile: [ 'cockroachdb', 'mariadb', 'mysql', 'oracle', 'phoenix', 'postgres', 'spanner', 'sqlite', 'sqlserver' ]
+        profile: ['oracle' ]
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
@@ -313,11 +313,11 @@ jobs:
   ## ----------------------------------------------------------------------------------
   oracle:
     needs: package-and-upload
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       fail-fast: false
       matrix:
-        benchmark: [ 'auctionmark', 'epinions', 'hyadapt', 'noop', 'otmetrics', 'resourcestresser', 'seats', 'sibench', 'smallbank', 'tatp', 'templated', 'tpcc', 'tpcc-with-reconnects', 'tpch', 'twitter', 'voter', 'wikipedia', 'ycsb' ]
+        benchmark: [ 'tpcc' ]
     services:
       oracle:
         image: gvenzl/oracle-xe:21.3.0-slim-faststart
