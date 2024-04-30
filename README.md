@@ -19,22 +19,31 @@ Choose the database you want to test on Benchbase and follow the corresponding s
 
 ### Postgres
 Version: PostgreSQL 12
+
 Run `setup_scripts/postgres_init.sh` to install and set up Postgres.
 
 ### CockroachDB
 Version: v24.1.0-alpha.5
+
 Run `setup_scripts/cockroach_init.sh` to install and set up CockroachDB.
 
 ### Oracle RDBMS
 Version: Oracle Database Express Edition (XE) version 21.3.0
+
 Install Docker by running `setup_scripts/docker_init.sh`.
+
 Follow the instructions in `docker/README.md` to set up Oracle RDBMS.
+
 
 ### Oracle Autonomous DB
 Set up an Oracle Autonomous DB on Oracle Cloud Free Tier.
+
 Add the IP of the VM to the Access Control List.
+
 Change the connection from mTLS to TLS.
+
 Create a DB user and get the DB connection string.
+
 Update the config to connect to the DB using the JDBC interface.
 
 ### Data
@@ -58,10 +67,14 @@ Replace the workload and config file with the desired DB config file and workloa
 
 ## Application and code
 Built with and for Java 21
+
 Visualization scripts in Python3
+
 Libraries used: 
+
 - Pandas and Matplotlib for visualization
 - Benchbase uses SLF4J for logging
+
 Build tool:
 - Maven
 
