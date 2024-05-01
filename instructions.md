@@ -41,7 +41,11 @@ Update the config to connect to the DB using the JDBC interface.
 The data need not be downloaded as it comes with benchbase setup
 
 ## Config changes made
-TODO Saumya
+Config files are present in the `config` directory. The changes made to the sample_tpcc_config.xml files of cockroachdb, postgres and oracle are:
+
+1. Added the JDBC connection string for the database.
+2. Updated `<scalefactor>` to 1,10 ad 100 to increase the number of warehouses
+3. Changed `<time>` from 60 and 3600 in the config file to run the benchmark for 60 minutes.
 
 ## Building Benchbase
 Run `setup_scripts/benchbase_init.sh` to build Benchbase.
@@ -66,13 +70,12 @@ Build tool:
 - Maven
 
 ## Visualizing Results
-Place the generated results in the `results` directory and run the scripts in the [notebook](https://github.com/Preethi1609/benchbase/blob/main/results/visualization/vis_results.ipynb) to visualize the benchmark results.
+Place the generated results in the `results` directory and run the scripts in the [notebook](benchbase/results/visualization/viz_results.ipynb) to visualize the benchmark results.
 
 ## Code written by us
-Includes scirpts to setup and run databases, scripts to setup and run benchbase, scripts to setup the environment(like installing docker), scripts to visualize results, config changes and documentation.
+Includes scripts to setup and run databases, scripts to setup and run benchbase, scripts to setup the environment(like installing docker), scripts to visualize results, config changes and documentation.
 
-## Credit
-
+## Credits
 This repository is a fork of the BenchBase project, which was originally developed by CMU DB group.
 
 D. E. Difallah, A. Pavlo, C. Curino, and P. Cudré-Mauroux, "OLTP-Bench: An Extensible Testbed for Benchmarking Relational Databases," PVLDB, vol. 7, iss. 4, pp. 277-288, 2013.
